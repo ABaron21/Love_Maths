@@ -28,11 +28,29 @@ function runGame(gameType) {
 }
 
 function checkAnswer() {
+    let userAnswer = parseInt(document.getElementById('answer-box').value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
 
+    if(isCorrect){
+
+    }else{
+
+    }
+    runGame(calculatedAnswer[1]);
 }
 
 function calculateCorrectAnswer() {
+    let operand1 = parseInt(document.getElementById('operand1').innerText);
+    let operand2 = parseInt(document.getElementById('operand2').innerText);
+    let operator = document.getElementById('operand1').innerText;
 
+    if(operator === "+"){
+        return [operand1 + operand2, "addition"]
+    }else{
+        alert(`Unimplemented operator: ${operator}`);
+        throw `Unimplemented operator: ${operator}. Aborting!`;
+    }
 }
 
 function incrementScore() {
